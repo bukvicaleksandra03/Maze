@@ -3,11 +3,12 @@ import time
 from bfs_maze import BFSMaze
 from dfs_maze import DFSMaze
 from greedy_bfs_maze import GreedyBFSMaze
+from a_maze import AMaze
 
 if len(sys.argv) != 2:
     sys.exit("Usage: python maze.py maze.txt")
 
-m = GreedyBFSMaze(sys.argv[1])
+m = AMaze(sys.argv[1])
 # print("Maze:")
 # m.print()
 print("Solving...")

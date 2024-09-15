@@ -1,4 +1,4 @@
-from frontiers import QueueFrontier, StackFrontier
+from frontiers import HeapFrontier
 from maze import Maze, Node
 
 class AMaze(Maze):
@@ -10,8 +10,8 @@ class AMaze(Maze):
         self.num_explored = 0
 
         # Initialize frontier to just the starting position
-        start = Node(state=self.start, parent=None, action=None)
-        frontier = QueueFrontier()
+        start = Node(state=self.start, parent=None, action=None, num_steps=0)
+        frontier = HeapFrontier(self.goal)
         frontier.add(start)
 
         # Initialize an empty explored set
@@ -47,5 +47,5 @@ class AMaze(Maze):
             # Add neighbors to frontier
             for action, state in self.neighbors(node.state):
                 if not frontier.contains_state(state) and state not in self.explored:
-                    child = Node(state=state, parent=node, action=action)
+                    child = Node(state=state, parent=node, action=action, num_steps=node.num_steps+1)
                     frontier.add(child)

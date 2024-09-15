@@ -1,8 +1,9 @@
 class Node():
-    def __init__(self, state, parent, action):
+    def __init__(self, state, parent, action, num_steps=0):
         self.state = state
         self.parent = parent
         self.action = action
+        self.num_steps = num_steps
 
 class Maze():
 

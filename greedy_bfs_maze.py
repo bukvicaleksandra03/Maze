@@ -1,4 +1,4 @@
-from frontiers import QueueFrontier, StackFrontier
+from frontiers import StackFrontier
 from maze import Maze, Node
 
 class GreedyBFSMaze(Maze):
@@ -57,5 +57,6 @@ class GreedyBFSMaze(Maze):
             
             neighbors_dist.sort(key=lambda x: x[1], reverse=True)
 
+            # We are pushing nodes with the greatest distance to goal to the stack first
             for child, dist_to_goal in neighbors_dist:
                 frontier.add(child)

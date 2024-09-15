@@ -1,4 +1,4 @@
-from frontiers import QueueFrontier, StackFrontier
+from frontiers import QueueFrontier
 from maze import Maze, Node
 
 class BFSMaze(Maze):
